@@ -21,13 +21,13 @@ namespace CompanyName_ClientName.ProjectName.Controllers
         {
             return a + b;
         }
-        [HttpPut]
+        [HttpPut]//update api method
         [Route("update data")]//child routes define here
         public int updatedata(int a, int b)
         {
             return a - b;
         }
-        [HttpDelete]
+        [HttpDelete]//delete api method 
         [Route("deletedata")]//child routes define here
         public int deletedata(int a, int b)
         {
