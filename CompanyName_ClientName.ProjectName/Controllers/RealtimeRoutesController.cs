@@ -22,7 +22,22 @@ namespace CompanyName_ClientName.ProjectName.Controllers
 
             return Ok(Id+'-'+ checkType);
         }
-        [HttpGet("Sip-comment/{SiphealthCheckDetailId}")]
+        [HttpGet]
+        [Route("Sip-details/{SipId}/{SiphealthCheckType}/{a}/{b}/{c}")]
+        public async Task<IActionResult> EmployeeDetails([FromRoute] string SipId, [FromRoute] string SiphealthCheckType, [FromRoute] string a, [FromRoute] string b, [FromRoute] string c)
+        {
+            var Id = SipId;
+            var checkType = SiphealthCheckType;
+
+            return Ok(Id + '-' + checkType+'-'+a+'-'+b+'-'+'-'+c);
+        }
+        [HttpGet(Name = "GetEmployeesQueryString")]
+        public string GetData([FromQuery] string a, [FromQuery] string b, [FromQuery] string c, [FromQuery] string d, [FromQuery] string e)
+        {
+            return a + b + c + d + e;
+
+        }
+            [HttpGet("Sip-comment/{SiphealthCheckDetailId}")]
         public async Task<IActionResult> SipComment([FromRoute]long SiphealthCheckDetailId)
         {
             var checkType = SiphealthCheckDetailId;
